@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>定位展示（纯静态·OSM Nominatim）</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+  <header class="container">
+    <h1>定位展示</h1>
+    <p class="muted">
+      页面打开会自动请求定位权限；授权后展示经纬度、精度（accuracy）、地址（省市区/门牌）与附近 POI（前 5）。
+      地址解析使用 OpenStreetMap Nominatim，POI 使用 Overpass（公共服务可能限流/偶发超时）。
+    </p>
+    <p class="muted small">
+      提示：浏览器定位多数情况下需要 HTTPS（localhost 例外）。
+    </p>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <div class="card">
+        <h2>定位与精度</h2>
+        <pre id="posBox">等待定位权限...</pre>
+      </div>
+
+      <div class="card">
+        <h2>地址信息（省市区 / 门牌）</h2>
+        <pre id="addrBox">未解析</pre>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>附近 POI（前 5）</h2>
+      <pre id="poiBox">未查询</pre>
+      <div class="muted small">
+        若你所在网络 Overpass 访问不稳定，此处可能失败，但不影响地址显示。
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>地图</h2>
+      <div id="map"></div>
+      <div class="muted small">
+        底图使用 CARTO（基于 OSM 数据）。
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
