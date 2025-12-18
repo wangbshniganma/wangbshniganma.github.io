@@ -4,7 +4,7 @@
   const poiBox = document.getElementById("poiBox");
 
   // ===== 配置 =====
-  const WORKER_BASE_URL = "https://iplocator.w1181392662.workers.dev"; // ← 改这里
+  const WORKER_BASE_URL = "https://nominatim-proxy.w1181392662.workers.dev"; // ← 改这里
   const ENABLE_POI = true;
 
   // ===== Map =====
@@ -175,3 +175,4 @@
     }
   })();
 })();
+
